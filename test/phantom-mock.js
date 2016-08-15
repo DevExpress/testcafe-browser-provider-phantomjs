@@ -1,3 +1,6 @@
+var Promise = require('pinkie');
+
+
 var phantomPage = {
     url:            '',
     viewportSize:   {},
