@@ -7,7 +7,7 @@ export default {
 
     isMultiBrowser: false,
 
-    async openBrowser (id, browserInfo, startPage) {
+    async openBrowser (id, alias, startPage) {
         var page = await this.phantom.createPage();
 
         await page.open(startPage);

@@ -1,4 +1,8 @@
 {
+    "rules": {
+      "no-unused-expressions": 0, // NOTE: for chai's expect
+      "max-nested-callbacks": [2, 5]
+    },
     "env": {
         "mocha": true
     }

@@ -6,7 +6,7 @@ This is the **phantomjs** browser provider plugin for [TestCafe](http://devexpre
 ## Install
 
 ```
-npm install -g testcafe-browser-provider-phantomjs
+npm install testcafe-browser-provider-phantomjs
 ```
 
 ## Usage
@@ -14,7 +14,7 @@ npm install -g testcafe-browser-provider-phantomjs
 When you run tests from the command line, use the provider name when specifying the browsers:
 
 ```
-testcafe chrome,phantomjs 'path/to/test/file.js'
+testcafe phantomjs 'path/to/test/file.js'
 ```
 
 
@@ -24,7 +24,7 @@ When you use API, pass the provider name to the `browsers()` method:
 testCafe
     .createRunner()
     .src('path/to/test/file.js')
-    .browsers('chrome', 'phantomjs')
+    .browsers('phantomjs')
     .run();
 ```
 
