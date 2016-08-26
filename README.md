@@ -1,7 +1,7 @@
 # testcafe-browser-provider-phantomjs
 [![Build Status](https://travis-ci.org/DevExpress/testcafe-browser-provider-phantomjs.svg)](https://travis-ci.org/DevExpress/testcafe-browser-provider-phantomjs)
 
-This is the **phantomjs** browser provider plugin for [TestCafe](http://devexpress.github.io/testcafe).
+This is the [TestCafe](http://devexpress.github.io/testcafe) browser provider plugin for integration with [PhantomJS](http://phantomjs.org/).
 
 ## Install
 

@@ -7,10 +7,10 @@ export default {
 
     isMultiBrowser: false,
 
-    async openBrowser (id, alias, startPage) {
+    async openBrowser (id, pageUrl) {
         var page = await this.phantom.createPage();
 
-        await page.open(startPage);
+        await page.open(pageUrl);
 
         this.openedPages[id] = page;
     },
@@ -33,13 +33,13 @@ export default {
         this.phantom = null;
     },
 
-    async resizeWindow (id, pageInfo, width, height) {
+    async resizeWindow (id, width, height) {
         var page = this.openedPages[id];
 
         await page.property('viewportSize', { width, height });
     },
 
-    async takeScreenshot (id, pageInfo, screenshotPath) {
+    async takeScreenshot (id, screenshotPath) {
         var page = this.openedPages[id];
 
         await page.render(screenshotPath);
