@@ -1,11 +1,17 @@
 var gulp    = require('gulp');
 var eslint  = require('gulp-eslint');
 var babel   = require('gulp-babel');
-var mocha   = require('gulp-mocha');
 var del     = require('del');
+var path    = require('path');
+var spawn   = require('./utils/spawn');
+
+
+var packageParentDir  = path.join(__dirname, '../');
+var packageSearchPath = (process.env.NODE_PATH ? process.env.NODE_PATH + path.delimiter : '') + packageParentDir;
+
 
 gulp.task('clean', function () {
-    return del('lib');
+    return del(['lib', '.screenshots']);
 });
 
 gulp.task('lint', function () {
@@ -27,12 +33,12 @@ gulp.task('build', ['clean', 'lint'], function () {
         .pipe(gulp.dest('lib'));
 });
 
-gulp.task('test', ['build'], function () {
-    return gulp
-        .src('test/**/*-test.js')
-        .pipe(mocha({
-            ui:       'bdd',
-            reporter: 'spec',
-            timeout:  typeof v8debug === 'undefined' ? 2000 : Infinity // NOTE: disable timeouts in debug
-        }));
+gulp.task('test-internal', ['build'], function () {
+    var testCafeCmd = path.join(__dirname, 'node_modules/.bin/testcafe');
+
+    return spawn(testCafeCmd, ['phantomjs', 'test/**/*.js', '-s', '.screenshots']);
+});
+
+gulp.task('test', function () {
+    return spawn('gulp', ['test-internal'], { NODE_PATH: packageSearchPath });
 });

@@ -1,9 +1,12 @@
 {
     "rules": {
-      "no-unused-expressions": 0, // NOTE: for chai's expect
-      "max-nested-callbacks": [2, 5]
+      "no-unused-expressions": 0 // NOTE: for chai's expect
     },
     "env": {
-        "mocha": true
+      "browser": true,
+      "mocha": true
+    },
+    "globals": {
+      "fixture": true
     }
 }
