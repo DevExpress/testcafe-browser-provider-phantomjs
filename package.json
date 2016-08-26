@@ -4,6 +4,9 @@
   "description": "phantomjs TestCafe browser provider plugin.",
   "repository": "https://github.com/DevExpress/testcafe-browser-provider-phantomjs",
   "homepage": "https://github.com/DevExpress/testcafe-browser-provider-phantomjs",
+  "engines" : {
+    "node" : ">=0.12"
+  },
   "author": {
     "name": "Developer Express Inc.",
     "url": "https://devexpress.com"
