@@ -4,8 +4,8 @@
   "description": "phantomjs TestCafe browser provider plugin.",
   "repository": "https://github.com/DevExpress/testcafe-browser-provider-phantomjs",
   "homepage": "https://github.com/DevExpress/testcafe-browser-provider-phantomjs",
-  "engines" : {
-    "node" : ">=0.12"
+  "engines": {
+    "node": ">=0.12"
   },
   "author": {
     "name": "Developer Express Inc.",
@@ -47,7 +47,7 @@
     "pinkie": "^2.0.4",
     "proxyquire": "^1.7.10",
     "publish-please": "^2.1.4",
-    "testcafe": "https://github.com/AndreyBelym/testcafe/releases/download/branch-browser-providers-aftermath2/testcafe-0.2.3-alpha.tgz",
+    "testcafe": "^0.3.0-alpha",
     "tmp": "0.0.28"
   }
 }
