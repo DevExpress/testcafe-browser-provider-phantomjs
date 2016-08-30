@@ -1,5 +1,13 @@
 language: node_js
 node_js:
-  - stable
-  - v4
-  - '0.12'
+  - "0.12"
+  - "stable"
+
+os:
+  - linux
+  - osx
+
+osx_image: xcode8
+
+notifications:
+  email: false

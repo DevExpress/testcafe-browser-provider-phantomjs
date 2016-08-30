@@ -47,5 +47,7 @@ gulp.task('test-internal', ['build'], function () {
 });
 
 gulp.task('test', function () {
-    return spawn('gulp', ['test-internal'], { NODE_PATH: packageSearchPath });
+    var gulpCmd = path.join(__dirname, 'node_modules/.bin/gulp');
+
+    return spawn(gulpCmd, ['test-internal'], { NODE_PATH: packageSearchPath });
 });
