@@ -6,12 +6,12 @@ var spawn       = require('./utils/spawn');
 var nodeVersion = require('node-version');
 
 
-var packageParentDir  = path.join(__dirname, '../');
-var packageSearchPath = (process.env.NODE_PATH ? process.env.NODE_PATH + path.delimiter : '') + packageParentDir;
+var PACKAGE_PARENT_DIR  = path.join(__dirname, '../');
+var PACKAGE_SEARCH_PATH = (process.env.NODE_PATH ? process.env.NODE_PATH + path.delimiter : '') + PACKAGE_PARENT_DIR;
 
 
 gulp.task('clean', function () {
-    return del(['lib', '.screenshots']);
+    return del('lib');
 });
 
 gulp.task('lint', function () {
@@ -40,14 +40,14 @@ gulp.task('build', ['clean', 'lint'], function () {
         .pipe(gulp.dest('lib'));
 });
 
-gulp.task('test-internal', ['build'], function () {
+gulp.task('test', ['build'], function () {
     var testCafeCmd = path.join(__dirname, 'node_modules/.bin/testcafe');
 
-    return spawn(testCafeCmd, ['phantomjs', 'test/**/*.js', '-s', '.screenshots']);
-});
+    var testCafeOpts = [
+        'phantomjs',
+        'test/**/*.js',
+        '-s', '.screenshots'
+    ];
 
-gulp.task('test', function () {
-    var gulpCmd = path.join(__dirname, 'node_modules/.bin/gulp');
-
-    return spawn(gulpCmd, ['test-internal'], { NODE_PATH: packageSearchPath });
+    return spawn(testCafeCmd, testCafeOpts, { NODE_PATH: PACKAGE_SEARCH_PATH });
 });
