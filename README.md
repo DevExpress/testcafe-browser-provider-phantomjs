@@ -3,6 +3,9 @@
 
 This is the [TestCafe](http://devexpress.github.io/testcafe) browser provider plugin for integration with [PhantomJS](http://phantomjs.org/). Supports `node >= 0.12`.
 
+**DEPRECATED** Due to the outdated WebKit and numerous issues in PhantomJS, it's highly recommended to use 
+[testcafe-browser-provider-nightmare](https://www.npmjs.com/package/testcafe-browser-provider-nightmare) for headless browser testing.
+
 ## Install
 
 ```
